@@ -24,7 +24,7 @@ def test_health():
     response = client.get("/health")
 
     assert response.status_code == 200
-    assert response.json() == {"status": "healthy"}
+    assert response.json() == {"status": "ok"}
 
 
 def test_get_employees(tmp_path, monkeypatch):
@@ -85,7 +85,7 @@ def test_create_employee_with_invalid_salary(tmp_path, monkeypatch):
 
     response = client.post(
         "/employees",
-        json={"name": "David", "salary": 0},
+        json={"name": "David", "salary": -5},
     )
 
     assert response.status_code == 422

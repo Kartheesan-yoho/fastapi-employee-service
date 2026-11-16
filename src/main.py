@@ -29,7 +29,7 @@ def read_employees():
 
 @app.get("/health")
 def health():
-    return {"status": "healthy"}
+    return {"status": "ok"}
 
 
 @app.get("/employees")
